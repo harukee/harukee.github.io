@@ -26,3 +26,6 @@ pnpm-debug.log*
 # 공개하지 않는 운영 문서 (로컬에만 유지)
 CLAUDE.md
 docs/topic-plan.md
+
+# 이 저장소 전용 SSH 키 (절대 커밋하지 않는다)
+.keys/
