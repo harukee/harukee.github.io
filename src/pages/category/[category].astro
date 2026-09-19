@@ -1,0 +1,38 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import PostList from '../../components/PostList.astro';
+import { CATEGORIES, CATEGORY_DESCRIPTIONS, SITE_TITLE, type Category } from '../../consts';
+import { getPosts } from '../../lib/posts';
+
+export function getStaticPaths() {
+	return CATEGORIES.map((category) => ({
+		params: { category: category.toLowerCase() },
+		props: { category },
+	}));
+}
+
+interface Props {
+	category: Category;
+}
+
+const { category } = Astro.props;
+const posts = await getPosts(category);
+---
+
+<!doctype html>
+<html lang="ko">
+	<head>
+		<BaseHead title={`${category} | ${SITE_TITLE}`} description={CATEGORY_DESCRIPTIONS[category]} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>{category}</h1>
+			<p>{CATEGORY_DESCRIPTIONS[category]}</p>
+			<PostList posts={posts} />
+		</main>
+		<Footer />
+	</body>
+</html>

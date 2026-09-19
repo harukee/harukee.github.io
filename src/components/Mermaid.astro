@@ -1,0 +1,33 @@
+---
+// Markdown의 ```mermaid 코드블록을 브라우저에서 다이어그램으로 바꾼다.
+// mermaid 번들은 페이지에 mermaid 블록이 있을 때만 동적으로 로드된다.
+---
+
+<script>
+	// Shiki에서 제외된 mermaid 블록은 <pre><code class="language-mermaid">로 출력된다.
+	const blocks = document.querySelectorAll<HTMLElement>('pre > code.language-mermaid');
+
+	if (blocks.length > 0) {
+		const { default: mermaid } = await import('mermaid');
+		mermaid.initialize({ startOnLoad: false, theme: 'neutral', securityLevel: 'strict' });
+
+		const nodes: HTMLElement[] = [];
+		blocks.forEach((code) => {
+			const container = document.createElement('div');
+			container.className = 'mermaid';
+			container.textContent = code.textContent ?? '';
+			code.parentElement?.replaceWith(container);
+			nodes.push(container);
+		});
+
+		await mermaid.run({ nodes });
+	}
+</script>
+
+<style is:global>
+	.mermaid {
+		margin: 0 0 2em;
+		overflow-x: auto;
+		text-align: center;
+	}
+</style>

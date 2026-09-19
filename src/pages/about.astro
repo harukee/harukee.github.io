@@ -1,0 +1,17 @@
+---
+import { SITE_DESCRIPTION } from '../consts';
+import Layout from '../layouts/BlogPost.astro';
+---
+
+<!--
+  TODO: 작성자 본인의 소개로 채운다. 경력·경험 서술은 작성자가 직접 확인한 사실만 쓴다.
+  아래 문장은 docs/topic-plan.md의 방향 문구를 그대로 옮긴 것이다.
+-->
+<Layout title="About" description={SITE_DESCRIPTION}>
+	<p>{SITE_DESCRIPTION}</p>
+	<p>
+		기술을 설명하는 데서 끝내지 않고, "왜 이런 기술이 필요해졌는가"를 묻습니다. 과거에 알고 있던
+		기술과 새로운 기술을 연결해 보는 여정을 기록합니다.
+	</p>
+	<p>공부하고, 만들고, 기록하고, 공개하고, 사람을 만납니다. 그 과정 전체가 라라프로젝트입니다.</p>
+</Layout>
