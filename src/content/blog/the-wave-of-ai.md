@@ -4,7 +4,7 @@ description: "사람이 정의한 Rule 중심 시스템에서 데이터가 Patte
 date: 2026-09-20
 categories: [Think]
 tags: [AI, Data Engineering, AI Agent, Machine Learning, Data Platform, Rule, Prediction]
-draft: true
+draft: false
 ---
 
 > **중심 질문:** 사람이 규칙을 만드는 시스템에서, 데이터가 패턴을 학습하는 시스템으로 무엇이 달라졌을까?
