@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+import portrait from '../assets/about.jpg';
 import { SITE_DESCRIPTION } from '../consts';
 import Layout from '../layouts/BlogPost.astro';
 ---
@@ -8,6 +10,9 @@ import Layout from '../layouts/BlogPost.astro';
   아래 문장은 초기 블로그 방향 문구를 그대로 옮긴 것이다.
 -->
 <Layout title="About" description={SITE_DESCRIPTION}>
+	<figure class="portrait">
+		<Image src={portrait} alt="한 줄로 그린 작성자의 드로잉" width={160} height={160} />
+	</figure>
 	<p>{SITE_DESCRIPTION}</p>
 	<p>
 		기술을 설명하는 데서 끝내지 않고, "왜 이런 기술이 필요해졌는가"를 묻습니다. 과거에 알고 있던
@@ -15,3 +20,17 @@ import Layout from '../layouts/BlogPost.astro';
 	</p>
 	<p>공부하고, 만들고, 기록하고, 공개하고, 사람을 만납니다. 그 과정 전체가 라라프로젝트입니다.</p>
 </Layout>
+
+<style>
+	.portrait {
+		margin: 0 0 2em;
+		text-align: center;
+	}
+	.portrait img {
+		width: 160px;
+		height: 160px;
+		border-radius: 50%;
+		border: 1px solid rgb(var(--gray-light));
+		box-shadow: none;
+	}
+</style>
