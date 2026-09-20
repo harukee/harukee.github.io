@@ -10,6 +10,7 @@ import HeaderLink from './HeaderLink.astro';
 			{CATEGORIES.map((c) => <HeaderLink href={`/category/${c.toLowerCase()}`}>{c}</HeaderLink>)}
 			<HeaderLink href="/blog">All</HeaderLink>
 			<HeaderLink href="/about">About</HeaderLink>
+			<HeaderLink href="/guestbook">방명록</HeaderLink>
 		</div>
 	</nav>
 </header>
